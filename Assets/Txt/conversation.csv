@@ -1,0 +1,18 @@
+Sign,ID,Character,Pos,Content,JumpTo,Effect,Target
+#,0,Bird,right,You really think you can beat me in a race?,1,,
+#,1,Man,left,Of course, it’s not all about flying fast.,2,,
+#,2,Bird,right,What’s your strategy then?,3,,
+&,3,,,I’ll rely on my stamina.,7,stamina@1,Man
+&,4,,,I’ll try to run quicker.,7,speed@2,Man
+&,5,,,I’ll stay calm and focused.,7,focus@2,Man
+&,6,,,All you have to know is that I will beat you.,7,angry@5,Bird
+#,7,Bird,right,Let’s see how that works for you!,8,,
+#,8,Man,left,We’ll find out soon enough.,9,,
+#,9,Bird,right,How do you prepare for challenges?,10,,
+&,10,,,I train every day to build endurance.,14,stamina@1,Man
+&,11,,,I practice to improve my speed.,14,speed@2,Man
+&,12,,,I rest well to stay sharp.,14,focus@2,Man
+&,13,,,Why should I tell you?,15,angry@5,Bird
+#,14,Bird,right,Well, let's do it then.,16,,
+#,15,Bird,right,You are so arrogant! We’ll see!,16,,
+END,16,,,,,,

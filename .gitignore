@@ -1,0 +1,18 @@
+# Unity generated files and folders
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Ll]ogs/
+
+# Package Cache
+Library/PackageCache/
+
+# User-specific files
+UserSettings/
+.vscode/
+.idea/
+
+# OS generated files
+.DS_Store
+Thumbs.db
