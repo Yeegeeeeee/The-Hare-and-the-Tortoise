@@ -1,23 +1,26 @@
-Sign,ID,Character,Pos,Content,JumpTo,Effect,Target
-#,0,Bird,right,You? A mere human? You really think you can beat me in a race?,1,,
-#,1,Man,left,I’ve already beaten the rabbit. Why not see how I do against you?,2,,
-#,2,Bird,right,The rabbit? That lazy fool was napping half the time! I’m nothing like him. I’ll crush you without even trying!,3,,
-#,3,Bird,right,Tell me, what’s your grand plan this time? Are you going to crawl your way to victory?,4,,
-#,4,Man,left,I have my own strategy. Winning isn’t always about being the fastest.,5,,
-#,5,Bird,right,Strategy? That’s just an excuse for being slow. Speed is everything. And lucky for me, I’ve got plenty of it!,6,,
-&,6,,,We’ll see who wins. I don’t need to brag. I’ll let my actions speak for themselves.,9,focus@1,Man
-&,7,,,Big words for someone who might end up eating dirt.,10,courage@1,Man
-&,8,,,I don’t care how strong or fast you are. I’m giving this everything I’ve got.,11,Determination@1,Man
-#,9,Bird,right,Hah! Keep dreaming. You’ll be choking on my dust before you know it.,12,,
-#,10,Bird,right,Oh, you’re going to regret that! I'm pretty sure of it.,12,,
-#,11,Bird,right,At least you’re honest. Too bad it won’t be enough!,12,,
-#,12,Bird,right,Just to let you know, I’ve got a few surprises ready for you.,13,,
-&,13,,,Surprises? What kind of dirty tricks are you planning?,17,inspection@1,Man
-&,14,,,Do your worst. I’m ready for anything.,17,Confidence@1,Man
-&,15,,,Sounds like you’re scared. You wouldn’t need surprises if you were really confident.,17,angry@1,Bird
-&,16,,,You know what? Maybe I’m not ready for this race after all.,18,,
-#,17,Bird,right,Enough talking. Time to see if you can actually keep up with me!,22,,
-#,18,Bird,right,Giving up so soon? Smart move. You wouldn’t have lasted long anyway.,19,,
-&,19,Man,left,You win. I’m not ready to face you yet.,21,fear@1,Man
-&,20,Man,left,You know what? Forget it. I’m not backing down from this.,21,,
-END,21,,,,,,
+Sign;ID;Character;Pos;Content;JumpTo;Effect;Target
+#;0;Bird;right;You? A mere human? You think you can beat me in a race?;1;;
+#;1;Man;left;I’ve already beaten the rabbit. Now it’s your turn to see what I can do.;2;;
+#;2;Bird;right;The rabbit? That overconfident fool practically handed you the win. I’m not like him.;3;;
+#;3;Bird;right;Tell me, what’s your plan this time? Hoping I’ll trip over myself?;4;;
+#;4;Man;left;I have my own strategy. Winning isn’t just about speed.;5;;
+#;5;Bird;right;Strategy? That’s just a fancy word for being slow. Speed is everything!;6;;
+&;6;;;Let’s see who wins.;9;focus@1;Man
+&;7;;;Big talk for a bird.;10;courage@1;Man
+&;8;;;I’ll give it everything I’ve got.;11;Determination@1;Man
+#;9;Bird;right;Hah! Keep dreaming. You’ll be eating my dust before you know it.;12;;
+#;10;Bird;right;Bold words. Let’s see if you can back them up!;12;;
+#;11;Bird;right;At least you’re determined. Too bad it won’t be enough.;12;;
+#;12;Bird;right;Just so you know, I’ve got a few surprises for you.;13;;
+&;13;;;Tricks? Let’s see if they’re enough to beat me.;17;inspection@1;Man
+&;14;;;Bring it on. I’m ready for anything you’ve got.;18;Confidence@1;Man
+&;15;;;You’re the one who should be worried.;19;angry@1;Bird
+&;16;;;Maybe I’m not ready after all.;21;;
+#;17;Bird;right;Tricks? Strategy, my dear friend. You’ll learn soon enough why I’ll win.;20;;
+#;18;Bird;right;Oh, I’ll bring it. But don’t cry when I leave you behind.;20;;
+#;19;Bird;right;Worried? Hah! Let’s see who’s standing at the finish line.;20;;
+#;20;Bird;right;Enough talk. Let’s see what you’re really made of!;24;;
+#;21;Bird;right;Backing out already? Smart move. Not everyone’s cut out for this race.;22;;
+&;22;Man;left;You win. I’m not ready for this challenge.;24;coward@1;Man
+&;23;Man;left;Forget it. I’m not backing down!;24;;
+END;24;;;;;;
