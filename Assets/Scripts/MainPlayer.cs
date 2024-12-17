@@ -11,8 +11,7 @@ public class MainPlayer : MonoBehaviour
     [SerializeField] private float trapCheck_xPos = 0.5f;
     [SerializeField] private float itemCheck_yPos = 0.5f;
     [Header("Player Info")]
-    [SerializeField] private float stamina = 1f;
-    [SerializeField] private float focus = 1f;
+    [SerializeField] private float stamina = .3f;
     private float flip_offset = 0.3f;
     private float xInput;
     private float yInput;
@@ -337,11 +336,26 @@ public class MainPlayer : MonoBehaviour
 
     private void SetInitialState()
     {
-        float _speed = PlayerPrefs.GetFloat("speed", 0);
+        float focus = PlayerPrefs.GetFloat("focus", 0);
+        float courage = PlayerPrefs.GetFloat("courage", 0);
+        float determination = PlayerPrefs.GetFloat("determination", 0);
+        float _duration = 0, _speed = 0, _dashSpeed = 0;
+        if (focus != 0)
+        {
+            _duration = .3f;
+        }
+
+        if (courage != 0)
+        {
+            _speed = 2f;
+        }
+        if (determination != 0)
+        {
+            _dashSpeed = 2f;
+        }
+
+        stamina += _duration;
         speed += _speed;
-        float _stamina = PlayerPrefs.GetFloat("stamina", 0);
-        stamina += _stamina;
-        float _focus = PlayerPrefs.GetFloat("focus", 0);
-        focus += _focus;
+        dashSpeed += _dashSpeed;
     }
 }

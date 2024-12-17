@@ -407,7 +407,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 252, y: -64.999985}
+  m_AnchoredPosition: {x: 330, y: -65}
   m_SizeDelta: {x: -683.22, y: -382.25}
   m_Pivot: {x: 0.5, y: 0.49999982}
 --- !u!114 &378721627
@@ -1062,6 +1062,7 @@ MonoBehaviour:
   left: {fileID: 1214318540}
   rightBird: {fileID: 1653688886}
   right: {fileID: 378721625}
+  dialog: {fileID: 0}
 --- !u!114 &1387167127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1312,8 +1313,8 @@ Transform:
   m_GameObject: {fileID: 1653688886}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 8.97, y: 0.54, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalPosition: {x: 10.22, y: 0.54, z: 0}
+  m_LocalScale: {x: 1.6, y: 1.6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}

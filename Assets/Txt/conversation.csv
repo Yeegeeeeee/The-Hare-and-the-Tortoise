@@ -1,18 +1,23 @@
 Sign,ID,Character,Pos,Content,JumpTo,Effect,Target
-#,0,Bird,right,You really think you can beat me in a race?,1,,
-#,1,Man,left,Of course, it’s not all about flying fast.,2,,
-#,2,Bird,right,What’s your strategy then?,3,,
-&,3,,,I’ll rely on my stamina.,7,stamina@1,Man
-&,4,,,I’ll try to run quicker.,7,speed@2,Man
-&,5,,,I’ll stay calm and focused.,7,focus@2,Man
-&,6,,,All you have to know is that I will beat you.,7,angry@5,Bird
-#,7,Bird,right,Let’s see how that works for you!,8,,
-#,8,Man,left,We’ll find out soon enough.,9,,
-#,9,Bird,right,How do you prepare for challenges?,10,,
-&,10,,,I train every day to build endurance.,14,stamina@1,Man
-&,11,,,I practice to improve my speed.,14,speed@2,Man
-&,12,,,I rest well to stay sharp.,14,focus@2,Man
-&,13,,,Why should I tell you?,15,angry@5,Bird
-#,14,Bird,right,Well, let's do it then.,16,,
-#,15,Bird,right,You are so arrogant! We’ll see!,16,,
-END,16,,,,,,
+#,0,Bird,right,You? A mere human? You really think you can beat me in a race?,1,,
+#,1,Man,left,I’ve already beaten the rabbit. Why not see how I do against you?,2,,
+#,2,Bird,right,The rabbit? That lazy fool was napping half the time! I’m nothing like him. I’ll crush you without even trying!,3,,
+#,3,Bird,right,Tell me, what’s your grand plan this time? Are you going to crawl your way to victory?,4,,
+#,4,Man,left,I have my own strategy. Winning isn’t always about being the fastest.,5,,
+#,5,Bird,right,Strategy? That’s just an excuse for being slow. Speed is everything. And lucky for me, I’ve got plenty of it!,6,,
+&,6,,,We’ll see who wins. I don’t need to brag. I’ll let my actions speak for themselves.,9,focus@1,Man
+&,7,,,Big words for someone who might end up eating dirt.,10,courage@1,Man
+&,8,,,I don’t care how strong or fast you are. I’m giving this everything I’ve got.,11,Determination@1,Man
+#,9,Bird,right,Hah! Keep dreaming. You’ll be choking on my dust before you know it.,12,,
+#,10,Bird,right,Oh, you’re going to regret that! I'm pretty sure of it.,12,,
+#,11,Bird,right,At least you’re honest. Too bad it won’t be enough!,12,,
+#,12,Bird,right,Just to let you know, I’ve got a few surprises ready for you.,13,,
+&,13,,,Surprises? What kind of dirty tricks are you planning?,17,inspection@1,Man
+&,14,,,Do your worst. I’m ready for anything.,17,Confidence@1,Man
+&,15,,,Sounds like you’re scared. You wouldn’t need surprises if you were really confident.,17,angry@1,Bird
+&,16,,,You know what? Maybe I’m not ready for this race after all.,18,,
+#,17,Bird,right,Enough talking. Time to see if you can actually keep up with me!,22,,
+#,18,Bird,right,Giving up so soon? Smart move. You wouldn’t have lasted long anyway.,19,,
+&,19,Man,left,You win. I’m not ready to face you yet.,21,fear@1,Man
+&,20,Man,left,You know what? Forget it. I’m not backing down from this.,21,,
+END,21,,,,,,
