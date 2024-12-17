@@ -10,7 +10,7 @@ public class Bird : MonoBehaviour
     [SerializeField] private float speed;
     private bool allowMoving = false;
     private Vector3 startPoint;
-    private float angry = 0f;
+    private bool isAngry = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -70,7 +70,10 @@ public class Bird : MonoBehaviour
 
     private void SetInitialState()
     {
-        float _angry = PlayerPrefs.GetFloat("angry", 0f);
-        angry += _angry;
+        float _angry = PlayerPrefs.GetFloat("angry", 0);
+        if (_angry != 0)
+        {
+            isAngry = true;
+        }
     }
 }
