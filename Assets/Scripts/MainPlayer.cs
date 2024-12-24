@@ -21,6 +21,9 @@ public class MainPlayer : MonoBehaviour
 
     [Header("Dash Info")]
     [SerializeField] private float dashSpeed;
+    [SerializeField] private GameObject ghost;
+    [SerializeField] private int ghostNum = 3;
+    private float ghostTime;
     private float dashDuration;
     private float dashTimer;
     [Header("Cooldown Info")]
@@ -102,6 +105,7 @@ public class MainPlayer : MonoBehaviour
             CheckInput();
             GetPotion();
             FlipController();
+            GenerateGhost();
             AnimatorController();
         }
 
@@ -152,7 +156,7 @@ public class MainPlayer : MonoBehaviour
 
     private void Move()
     {
-
+        dashDuration = stamina;
         if ((xInput != 0 || xInput == 0 && isGrounded) && dashTimer < 0)
         {
             SetVelocity(xInput * speed, rb.velocity.y);
@@ -204,6 +208,23 @@ public class MainPlayer : MonoBehaviour
             dashTimer = dashDuration;
             dashCooldownTimer = currentDashCooldownTime;
             SetVelocity(facingDir * dashSpeed, rb.velocity.y);
+        }
+    }
+
+    private void GenerateGhost()
+    {
+        if (dashTimer > 0 && Time.time > ghostTime)
+        {
+            GameObject ghostObj = Instantiate(ghost, transform.position, Quaternion.identity);
+            if (!facingRight)
+            {
+                ghostObj.transform.Rotate(0, 180, 0);
+            }
+            ghostTime = Time.time + dashDuration / ghostNum;
+            if (dashTimer < 0.1f)
+            {
+                dashTimer = 0;
+            }
         }
     }
 

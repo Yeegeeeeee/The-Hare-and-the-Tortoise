@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class Bird : MonoBehaviour
 {
@@ -8,10 +9,14 @@ public class Bird : MonoBehaviour
     protected Rigidbody2D rb;
     [Header("Move Info")]
     [SerializeField] private float speed;
+    [Header("Item Info")]
+    [SerializeField] private Tilemap itemTileMap;
+    [SerializeField] private float eatingPeriod = 2f;
     private bool allowMoving = false;
     private Vector3 startPoint;
     private bool isAngry = false;
     private bool isEating = false;
+    private bool isRest = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,9 +33,10 @@ public class Bird : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (allowMoving)
+        if (allowMoving && !isEating && !isRest)
             Move();
         AnimController();
+        CheckForItems();
     }
 
     private void AnimController()
@@ -45,18 +51,14 @@ public class Bird : MonoBehaviour
 
     }
 
-    private void DropPotion()
-    {
-
-    }
-
     private void DropTrap()
     {
 
     }
 
-    private void DropBlock()
+    private void CheckForItems()
     {
+        if (isEating) return;
 
     }
 

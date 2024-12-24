@@ -85,6 +85,7 @@
     <Compile Include="Assets\Scripts\DialogManager.cs" />
     <Compile Include="Assets\Scripts\BasicScripts\Timer.cs" />
     <Compile Include="Assets\Scripts\BasicScripts\DoorLine.cs" />
+    <Compile Include="Assets\Scripts\Ghost.cs" />
     <Compile Include="Assets\Scripts\BasicScripts\Background.cs" />
     <Compile Include="Assets\Scripts\BasicScripts\Entity.cs" />
     <Compile Include="Assets\Scripts\BasicScripts\MainMenu_UI.cs" />
