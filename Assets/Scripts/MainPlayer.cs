@@ -97,8 +97,6 @@ public class MainPlayer : MonoBehaviour
         }
         else
         {
-            dashDuration = stamina;
-
             DecreaseTimer();
             Move();
             CheckInput();
@@ -341,6 +339,7 @@ public class MainPlayer : MonoBehaviour
         float focus = PlayerPrefs.GetFloat("focus", 0);
         float courage = PlayerPrefs.GetFloat("courage", 0);
         float determination = PlayerPrefs.GetFloat("determination", 0);
+        Debug.Log("focus: " + focus + ", courage: " + courage + ", determination: " + determination);
         float _duration = 0, _speed = 0, _dashSpeed = 0;
         if (focus != 0)
         {

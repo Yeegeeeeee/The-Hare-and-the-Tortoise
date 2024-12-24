@@ -19,6 +19,10 @@ public class Bird : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         startPoint = rb.transform.position;
         SetInitialState();
+        if (isAngry)
+        {
+            speed = 15;
+        }
     }
 
     // Update is called once per frame
@@ -38,11 +42,7 @@ public class Bird : MonoBehaviour
     private void DistanceCount()
     {
         float distance = rb.transform.position.x - startPoint.x;
-        switch (distance)
-        {
 
-
-        }
     }
 
     private void DropPotion()
