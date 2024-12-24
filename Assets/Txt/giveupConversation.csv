@@ -1,0 +1,7 @@
+Sign;ID;Character;Pos;Content;JumpTo;Effect;Target
+#;0;Bird;right;Hah! I knew it. You’re nothing but a coward, unworthy of even standing at the starting line.;1;;
+#;1;Bird;right;Did you really think someone like you could challenge me? Don’t make me laugh.;2;;
+#;2;Bird;right;Go on, crawl back to whatever hole you came from. Racing you would’ve been a waste of my time.;3;;
+#;3;Bird;right;Next time, don’t bother showing up unless you’re ready to lose with dignity.;4;;
+#;4;Man;left;......;5;;
+END;5;;;;;;

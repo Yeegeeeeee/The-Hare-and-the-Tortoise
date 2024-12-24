@@ -22,6 +22,8 @@ public class DialogManager : MonoBehaviour
     [SerializeField] private Button nextButton;
     [SerializeField] private GameObject optionButton;
     [SerializeField] private Transform buttonGroup;
+    [SerializeField] private bool isStart;
+
     private TMP_Text text;
     private SpriteRenderer man;
     private SpriteRenderer bird;
@@ -199,18 +201,30 @@ public class DialogManager : MonoBehaviour
             }
             else if (cell[0] == "END" && dialogIndex == int.Parse(cell[1]))
             {
-                float _coward = PlayerPrefs.GetFloat("coward", 0);
-                if (_coward > 0)
-                {
-                    SceneManager.LoadScene("Retreat");
-                }
-                else
-                {
-                    SceneManager.LoadScene("Race");
-                }
+                SceneChangeManager();
             }
         }
         // Debug.Log("Current Stack: " + string.Join(", ", dialogHistory.ToArray()));
+    }
+
+    private void SceneChangeManager()
+    {
+        if (isStart)
+        {
+            float _coward = PlayerPrefs.GetFloat("coward", 0);
+            if (_coward > 0)
+            {
+                SceneManager.LoadScene("Giveup");
+            }
+            else
+            {
+                SceneManager.LoadScene("Race");
+            }
+        }
+        else
+        {
+
+        }
     }
 
     public void OnClickNext()
