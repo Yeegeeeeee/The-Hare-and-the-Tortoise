@@ -34,7 +34,9 @@ public class MainCamera : MonoBehaviour
     private void FollowTarget()
     {
         if (Target == null) return;
-        Vector3 targetPos = new Vector3(Target.transform.position.x, Target.transform.position.y + PosY, -100);
+        float clampedY = Mathf.Max(Target.transform.position.y + PosY, -15);
+
+        Vector3 targetPos = new Vector3(Target.transform.position.x, clampedY, -100);
         transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref velocity, 1f / Smoothvalue);
     }
 

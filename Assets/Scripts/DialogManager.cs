@@ -209,21 +209,19 @@ public class DialogManager : MonoBehaviour
 
     private void SceneChangeManager()
     {
+        float _coward = PlayerPrefs.GetFloat("coward", 0);
+        if (_coward > 0)
+        {
+            SceneManager.LoadScene("Giveup");
+            return;
+        }
         if (isStart)
         {
-            float _coward = PlayerPrefs.GetFloat("coward", 0);
-            if (_coward > 0)
-            {
-                SceneManager.LoadScene("Giveup");
-            }
-            else
-            {
-                SceneManager.LoadScene("Race");
-            }
+            SceneManager.LoadScene("Race");
         }
         else
         {
-
+            SceneManager.LoadScene("");
         }
     }
 

@@ -169,7 +169,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.6000061, y: -163.83}
+  m_AnchoredPosition: {x: 0.6000061, y: -163.83002}
   m_SizeDelta: {x: -26.2, y: -290.59}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7613543498258279258
@@ -258,7 +258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff490bb56dea2934c9c5eee8e0ddd6a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogDataFile: {fileID: 4900000, guid: fe9d3e884a7d3fa45a34684d9651d92c, type: 3}
+  dialogDataFile: {fileID: 4900000, guid: 56f38a94643002c42bf810e863970a73, type: 3}
   leftMan: {fileID: 0}
   left: {fileID: 3073132842391743356}
   rightBird: {fileID: 0}
@@ -267,6 +267,7 @@ MonoBehaviour:
   nextButton: {fileID: 2340341691807720691}
   optionButton: {fileID: 7490754445586375439, guid: f8a6b2c1e707e8c4ca8323c537ba81ee, type: 3}
   buttonGroup: {fileID: 6924728361157195106}
+  isStart: 0
 --- !u!1 &2521998973686431242
 GameObject:
   m_ObjectHideFlags: 0
@@ -570,7 +571,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -317, y: -65.999985}
+  m_AnchoredPosition: {x: -317, y: -66}
   m_SizeDelta: {x: -631.41, y: -382.25}
   m_Pivot: {x: 0.5, y: 0.49999982}
 --- !u!222 &5731635744971591057
@@ -839,7 +840,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 341, y: -64.999985}
+  m_AnchoredPosition: {x: 341, y: -65}
   m_SizeDelta: {x: -683.22, y: -382.25}
   m_Pivot: {x: 0.5, y: 0.49999982}
 --- !u!222 &7483393166015251174

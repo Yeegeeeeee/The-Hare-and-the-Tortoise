@@ -1,6 +1,7 @@
-using System;
+using System.Collections;
 using Unity.VisualScripting.AssemblyQualifiedNameParser;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainPlayer : MonoBehaviour
 {
@@ -42,6 +43,7 @@ public class MainPlayer : MonoBehaviour
     [SerializeField] protected float itemCheckDistance;
     [SerializeField] private LayerMask whatIsItem;
     [SerializeField] private LayerMask whatIsTrap;
+    [SerializeField] private LayerMask detectLine;
 
 
 
@@ -52,6 +54,7 @@ public class MainPlayer : MonoBehaviour
     private bool isHurt;
     private bool isDead;
     private bool isTrapped;
+    private bool isFall;
     private bool isItemDetected;
     protected int facingDir = 1;
     protected bool facingRight = true;
@@ -92,16 +95,22 @@ public class MainPlayer : MonoBehaviour
     // Update is called once per frame
     protected void Update()
     {
-        CollisionTest();
-
-
         if (isHurt)
         {
-            SetVelocity(0, 0);
+            HandleHurt();
+        }
+        else if (isDead)
+        {
+            if (transform.position.y < -20f)
+            {
+                SceneChangeManager();
+            }
         }
         else
         {
+            CollisionTest();
             DecreaseTimer();
+            CheckFall();
             Move();
             CheckInput();
             GetPotion();
@@ -123,9 +132,42 @@ public class MainPlayer : MonoBehaviour
         anim.SetTrigger("isDead");
     }
 
+    public void SetIsHurt(bool _isHurt)
+    {
+        Debug.Log($"SetIsHurt called. isHurt: {_isHurt}, frame: {Time.frameCount}");
+        isHurt = _isHurt;
+        IsHurtAnim();
+    }
+
     private void MusicPlayer()
     {
 
+    }
+
+    private void HandleHurt()
+    {
+        Debug.Log("Handle Hurt");
+        if (isDead) return;
+        isDead = true;
+        IsHurtAnim();
+        SetVelocity(0, jumpHeight);
+        Destroy(GetComponent<Collider2D>());
+        isHurt = false;
+    }
+
+    private void SceneChangeManager()
+    {
+
+        if (isTrapped)
+        {
+            JumpToTrapDeath();
+            return;
+        }
+        if (isFall)
+        {
+            JumpToFallDeath();
+            return;
+        }
     }
 
     private void MuteAll()
@@ -147,6 +189,26 @@ public class MainPlayer : MonoBehaviour
                     break;
             }
         }
+    }
+
+    private void CheckFall()
+    {
+        if (isHurt || isTrapped || isDead) return;
+        if (transform.position.y < -10f && transform.position.y > -20f)
+        {
+            isFall = true;
+            isHurt = true;
+        }
+    }
+
+    private void JumpToFallDeath()
+    {
+        SceneManager.LoadScene("FallDeathConversation");
+    }
+
+    private void JumpToTrapDeath()
+    {
+        SceneManager.LoadScene("TrapDeathConversation");
     }
 
     public void SetAllowMoving(bool allowMoving)
@@ -231,6 +293,7 @@ public class MainPlayer : MonoBehaviour
 
     protected void CollisionTest()
     {
+        if (isHurt) return;
         isGrounded = Physics2D.Raycast(groundCheck.position, Vector2.down, groundCheckDistance, whatIsGround);
 
         RaycastHit2D raycast1 = GetVerticalRaycastHit(groundCheck, 0, Vector2.down, groundCheckDistance, whatIsTrap);
@@ -238,6 +301,8 @@ public class MainPlayer : MonoBehaviour
         RaycastHit2D raycast3 = GetVerticalRaycastHit(groundCheck, -trapCheck_xPos, Vector2.down, groundCheckDistance, whatIsTrap);
 
         isTrapped = GetRaycastResult(raycast1, raycast2, raycast3);
+        if (isTrapped)
+            isHurt = true;
 
         raycast1 = GetVerticalRaycastHit(headCheck, 0, Vector2.up, headCheckDistance, whatIsGround);
         raycast2 = GetVerticalRaycastHit(headCheck, headCheck_xPos, Vector2.up, headCheckDistance, whatIsGround);
@@ -334,6 +399,11 @@ public class MainPlayer : MonoBehaviour
     private void IsDashingAnim()
     {
         anim.SetBool("isDashing", dashTimer > 0);
+    }
+
+    private void IsHurtAnim()
+    {
+        anim.SetBool("isHurt", isHurt);
     }
 
     private void FlipController()

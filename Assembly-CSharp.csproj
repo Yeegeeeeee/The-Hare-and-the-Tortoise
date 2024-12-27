@@ -70,6 +70,7 @@
     <Compile Include="Assets\Scripts\BasicScripts\Elevator.cs" />
     <Compile Include="Assets\Ethan the Hero\Script\PlayerAnimation.cs" />
     <Compile Include="Assets\Ethan the Hero\Script\PlayerAttackMethod.cs" />
+    <Compile Include="Assets\Scripts\HurtAnimation.cs" />
     <Compile Include="Assets\Scripts\BasicScripts\Train_HealthBar_UI.cs" />
     <Compile Include="Assets\Scripts\BasicScripts\DamageNum.cs" />
     <Compile Include="Assets\Scripts\BasicScripts\Enemy_Big_Cultist.cs" />
@@ -87,9 +88,12 @@
     <Compile Include="Assets\Scripts\BasicScripts\DoorLine.cs" />
     <Compile Include="Assets\Scripts\Ghost.cs" />
     <Compile Include="Assets\Scripts\BasicScripts\Background.cs" />
+    <Compile Include="Assets\Scripts\Trap.cs" />
     <Compile Include="Assets\Scripts\BasicScripts\Entity.cs" />
     <Compile Include="Assets\Scripts\BasicScripts\MainMenu_UI.cs" />
+    <Compile Include="Assets\Fox\Fox\Scripts\Fox_Move.cs" />
     <Compile Include="Assets\Scripts\BasicScripts\UI_FadeScreen.cs" />
+    <Compile Include="Assets\Scripts\BottomDetectLine.cs" />
     <Compile Include="Assets\Scripts\BasicScripts\Boss_HealthBar_UI.cs" />
     <Compile Include="Assets\Scripts\BasicScripts\EnemyAnimEvent.cs" />
     <Compile Include="Assets\Scripts\BasicScripts\TrainRobotAnimEvent.cs" />
@@ -113,6 +117,7 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
+    <None Include="Assets\Warrior free set\License.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
@@ -128,11 +133,14 @@
     <None Include="Assets\Resources\GrimWorkbench\Public\Shader\Unlit-Cutout-Color2.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\2DBirds_Pack3\Documentation 1\Documentation.txt" />
+    <None Include="Assets\Doctor_Pack02\Documentation\Documentation.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
+    <None Include="Assets\Fox\Readme.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
+    <None Include="Assets\Warrior free set\Contact.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
   </ItemGroup>
   <ItemGroup>
@@ -1118,6 +1126,10 @@
     </Reference>
     <Reference Include="Unity.VisualScripting.State">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.VSCode.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.2D.SpriteShape.Editor">

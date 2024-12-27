@@ -1,0 +1,6 @@
+Sign;ID;Character;Pos;Content;JumpTo;Effect;Target
+#;0;Bird;right;......;1;;
+#;1;Man;left;......;2;;
+#;2;Bird;right;......;3;;
+#;3;Bird;right;......;4;;
+END;4;;;;;;
