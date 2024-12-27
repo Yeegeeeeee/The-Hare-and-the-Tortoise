@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting.AssemblyQualifiedNameParser;
 using UnityEngine;
 
 public class MainPlayer : MonoBehaviour
@@ -156,7 +157,7 @@ public class MainPlayer : MonoBehaviour
 
     private void Move()
     {
-        dashDuration = stamina;
+        currentDashCooldownTime = dashCooldownTime;
         if ((xInput != 0 || xInput == 0 && isGrounded) && dashTimer < 0)
         {
             SetVelocity(xInput * speed, rb.velocity.y);

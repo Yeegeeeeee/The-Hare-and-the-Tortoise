@@ -96,11 +96,13 @@
     <Compile Include="Assets\Scripts\BasicScripts\PlayerAnimEvent.cs" />
     <Compile Include="Assets\Scripts\BasicScripts\Train_Twisted_Cultist.cs" />
     <Compile Include="Assets\Scripts\BasicScripts\BossAreaLine.cs" />
+    <Compile Include="Assets\Scripts\Platform.cs" />
     <Compile Include="Assets\Scripts\BasicScripts\Player_HealthBar_UI.cs" />
     <Compile Include="Assets\Scripts\BasicScripts\TrainTwistedCultistAnimEvent.cs" />
     <Compile Include="Assets\Scripts\BasicScripts\DetectLine.cs" />
     <Compile Include="Assets\Scripts\Bird.cs" />
     <Compile Include="Assets\Scripts\BasicScripts\Potion.cs" />
+    <Compile Include="Assets\Scripts\Item.cs" />
     <Compile Include="Assets\Scripts\BasicScripts\TrainingRobot.cs" />
     <Compile Include="Assets\Scripts\CountDownClock.cs" />
     <Compile Include="Assets\Ethan the Hero\Script\PlayerMovement\PlayerMovement.cs" />
