@@ -51,12 +51,15 @@ public class Bird : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CollisionTest();
-        if (allowMoving && !isEating && !isRest)
-            Move();
+        if (!isEating && !isRest && !isFlyingToTarget)
+        {
+            CollisionTest();
+            if (allowMoving)
+                Move();
+            CheckForItems();
+            CheckForPlatform();
+        }
         AnimController();
-        CheckForItems();
-        CheckForPlatform();
     }
 
     private void AnimController()
@@ -88,7 +91,7 @@ public class Bird : MonoBehaviour
 
     protected void CollisionTest()
     {
-        if (isEating || targetItem != null || isRest) return;
+        if (targetItem != null) return;
 
         isVerticalItems = Physics2D.Raycast(itemCheck.position, Vector3.down, verticalCheckDistance, whatIsItem);
         if (!isVerticalItems)
@@ -173,7 +176,8 @@ public class Bird : MonoBehaviour
     private IEnumerator StartEating()
     {
         float instantSpeed = 5f;
-        float targetTolerance = 0.5f;
+        float targetTolerance = 0.3f;
+        float previousDistance = float.MaxValue;
 
         if (isEating || targetItem == null) yield break;
 
@@ -187,12 +191,29 @@ public class Bird : MonoBehaviour
 
         isFlyingToTarget = true;
         Vector3 direction = (targetPos - transform.position).normalized;
-        while (Vector3.Distance(transform.position, targetPos) > targetTolerance)
+        while (true)
         {
+            float currentDistance = Vector3.Distance(transform.position, targetPos);
+
+
+            if (currentDistance > previousDistance)
+            {
+                Debug.LogWarning("Detected increasing distance. Forcing position to target.");
+                transform.position = targetPos;
+                break;
+            }
+
+
+            if (currentDistance <= targetTolerance)
+            {
+                transform.position = targetPos;
+                break;
+            }
+
+            previousDistance = currentDistance;
             rb.velocity = direction * instantSpeed;
             yield return null;
         }
-
         rb.velocity = Vector3.zero;
         transform.position = targetPos;
 

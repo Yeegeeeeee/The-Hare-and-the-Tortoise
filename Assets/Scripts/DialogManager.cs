@@ -115,15 +115,15 @@ public class DialogManager : MonoBehaviour
         }
     }
 
-    private void UpdateText(string character, string dialogText)
+    private void UpdateText(string position, string dialogText)
     {
-        character = character.ToLower();
-        if (character == "man")
+        position = position.ToLower();
+        if (position == "left")
         {
             DisableRight();
             EnableLeft();
         }
-        else if (character == "bird")
+        else if (position == "right")
         {
             DisableLeft();
             EnableRight();
@@ -180,7 +180,7 @@ public class DialogManager : MonoBehaviour
                     dialogHistory.Push(dialogIndex);
                 }
                 EnablePanel();
-                UpdateText(cell[2], cell[4]);
+                UpdateText(cell[3], cell[4]);
                 dialogIndex = int.Parse(cell[5]);
                 Debug.Log("Dialog to: " + dialogIndex);
                 optionTime = false;

@@ -1,6 +1,7 @@
 Sign;ID;Character;Pos;Content;JumpTo;Effect;Target
-#;0;Bird;right;......;1;;
-#;1;Man;left;......;2;;
-#;2;Bird;right;......;3;;
-#;3;Bird;right;......;4;;
-END;4;;;;;;
+#;0;Eagle;right;Oh dear, looks like you didn’t see that one coming.;1;;
+#;1;Eagle;right;Did you really think you could outsmart me? These traps were made just for you.;2;;
+#;2;Eagle;right;You humans are all the same—too proud, too blind.;3;;
+#;3;Eagle;right;Well, at least you’ll add some company to my collection down there.;4;;
+#;4;Eagle;right;Rest in peace, my dear competitor. Your race is over, and my victory streak continues.;5;;
+END;5;;;;;

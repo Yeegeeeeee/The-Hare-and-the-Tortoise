@@ -1,5 +1,5 @@
 Sign;ID;Character;Pos;Content;JumpTo;Effect;Target
-#;0;Bird;right;You? A mere human? You think you can beat me in a race?;1;;
+#;0;Bird;right;You? A mere human? You think you can beat me in a race? I’ve got a perfect record: 3 wins, 0 losses.;1;;
 #;1;Man;left;I’ve already beaten the rabbit. Now it’s your turn to see what I can do.;2;;
 #;2;Bird;right;The rabbit? That overconfident fool practically handed you the win. I’m not like him.;3;;
 #;3;Bird;right;Tell me, what’s your plan this time? Hoping I’ll trip over myself?;4;;

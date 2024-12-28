@@ -13,7 +13,6 @@ public class MainPlayer : MonoBehaviour
     [SerializeField] private float trapCheck_xPos = 0.5f;
     [SerializeField] private float itemCheck_yPos = 0.5f;
     [Header("Player Info")]
-    [SerializeField] private float stamina = .3f;
     private float flip_offset = 0.3f;
     private float xInput;
     private float yInput;
@@ -26,10 +25,10 @@ public class MainPlayer : MonoBehaviour
     [SerializeField] private GameObject ghost;
     [SerializeField] private int ghostNum = 3;
     private float ghostTime;
-    private float dashDuration;
+    [SerializeField] private float dashDuration = .3f;
     private float dashTimer;
     [Header("Cooldown Info")]
-    [SerializeField] private float dashCooldownTime = 3f;
+    [SerializeField] private float stamina = 3f;
     [Header("Audio Info")]
 
 
@@ -66,8 +65,7 @@ public class MainPlayer : MonoBehaviour
         SetInitialState();
         anim = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        currentDashCooldownTime = dashCooldownTime;
-        dashDuration = stamina;
+        currentDashCooldownTime = stamina;
         //GameObject timer = transform.Find("Timer").gameObject;
         //dashCoolDownTimer = timer.GetComponentInChildren<DashCoolDownTimer>();
     }
@@ -219,7 +217,7 @@ public class MainPlayer : MonoBehaviour
 
     private void Move()
     {
-        currentDashCooldownTime = dashCooldownTime;
+        currentDashCooldownTime = stamina;
         if ((xInput != 0 || xInput == 0 && isGrounded) && dashTimer < 0)
         {
             SetVelocity(xInput * speed, rb.velocity.y);
@@ -243,10 +241,12 @@ public class MainPlayer : MonoBehaviour
 
     private void Jump()
     {
-        jumpCount++;
-        SetVelocity(rb.velocity.x, jumpHeight);
-        if (jumpCount == 2)
-            jumpCount = 0;
+        if (jumpCount < 2)
+        {
+            jumpCount++;
+            SetVelocity(rb.velocity.x, jumpHeight);
+        }
+
     }
 
     private void CheckInput()
@@ -256,12 +256,13 @@ public class MainPlayer : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (isGrounded && !isHeadHit)
-                Jump();
-
-            if (!isGrounded && jumpCount == 1)
+            if (isGrounded || jumpCount < 2)
             {
                 Jump();
+            }
+            if (isGrounded && jumpCount == 2)
+            {
+                jumpCount = 0;
             }
         }
 
@@ -431,11 +432,13 @@ public class MainPlayer : MonoBehaviour
         float focus = PlayerPrefs.GetFloat("focus", 0);
         float courage = PlayerPrefs.GetFloat("courage", 0);
         float determination = PlayerPrefs.GetFloat("determination", 0);
+        float inspection = PlayerPrefs.GetFloat("inspection", 0);
+        float confidence = PlayerPrefs.GetFloat("confidence", 0);
         Debug.Log("focus: " + focus + ", courage: " + courage + ", determination: " + determination);
         float _duration = 0, _speed = 0, _dashSpeed = 0;
         if (focus != 0)
         {
-            _duration = .3f;
+            _duration = 1f;
         }
 
         if (courage != 0)
@@ -447,7 +450,7 @@ public class MainPlayer : MonoBehaviour
             _dashSpeed = 2f;
         }
 
-        stamina += _duration;
+        stamina -= _duration;
         speed += _speed;
         dashSpeed += _dashSpeed;
     }
