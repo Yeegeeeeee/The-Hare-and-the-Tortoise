@@ -488,22 +488,27 @@ public class MainPlayer : MonoBehaviour
         float focus = PlayerPrefs.GetFloat("focus", 0);
         float courage = PlayerPrefs.GetFloat("courage", 0);
         float determination = PlayerPrefs.GetFloat("determination", 0);
-        float inspection = PlayerPrefs.GetFloat("inspection", 0);
         float confidence = PlayerPrefs.GetFloat("confidence", 0);
-        Debug.Log("focus: " + focus + ", courage: " + courage + ", determination: " + determination);
+        Debug.Log("focus: " + focus + ", courage: " + courage + ", determination: " + determination + ", confidence: " + confidence);
         float _duration = 0, _speed = 0, _dashSpeed = 0;
         if (focus != 0)
         {
-            _duration = 1f;
+            _duration += 1f;
         }
 
         if (courage != 0)
         {
-            _speed = 1f;
+            _speed += 1f;
         }
         if (determination != 0)
         {
-            _dashSpeed = 2f;
+            _dashSpeed += 2f;
+        }
+        if (confidence != 0)
+        {
+            _duration += .5f;
+            _speed += .5f;
+            _dashSpeed += 1f;
         }
 
         stamina -= _duration;

@@ -219,10 +219,7 @@ public class DialogManager : MonoBehaviour
         {
             SceneManager.LoadScene("Race");
         }
-        else
-        {
-            SceneManager.LoadScene("");
-        }
+
     }
 
     public void OnClickNext()
