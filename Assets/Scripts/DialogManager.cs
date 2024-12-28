@@ -99,7 +99,7 @@ public class DialogManager : MonoBehaviour
         PlayerPrefs.SetFloat("confidence", 0);
         PlayerPrefs.SetFloat("angry", 0);
         PlayerPrefs.SetFloat("coward", 0);
-        PlayerPrefs.Save();
+
     }
 
     private void CheckInput()
@@ -115,15 +115,15 @@ public class DialogManager : MonoBehaviour
         }
     }
 
-    private void UpdateText(string position, string dialogText)
+    private void UpdateText(string character, string dialogText)
     {
-        position = position.ToLower();
-        if (position == "left")
+        character = character.ToLower();
+        if (character == "man")
         {
             DisableRight();
             EnableLeft();
         }
-        else if (position == "right")
+        else if (character == "bird")
         {
             DisableLeft();
             EnableRight();
@@ -180,7 +180,7 @@ public class DialogManager : MonoBehaviour
                     dialogHistory.Push(dialogIndex);
                 }
                 EnablePanel();
-                UpdateText(cell[3], cell[4]);
+                UpdateText(cell[2], cell[4]);
                 dialogIndex = int.Parse(cell[5]);
                 Debug.Log("Dialog to: " + dialogIndex);
                 optionTime = false;
@@ -219,7 +219,10 @@ public class DialogManager : MonoBehaviour
         {
             SceneManager.LoadScene("Race");
         }
-
+        else
+        {
+            SceneManager.LoadScene("");
+        }
     }
 
     public void OnClickNext()

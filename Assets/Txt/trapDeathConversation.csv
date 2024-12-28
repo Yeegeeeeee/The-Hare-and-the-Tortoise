@@ -1,7 +1,6 @@
 Sign;ID;Character;Pos;Content;JumpTo;Effect;Target
-#;0;Eagle;right;Oh dear, looks like you didn’t see that one coming.;1;;
-#;1;Eagle;right;Did you really think you could outsmart me? This is the surprise I prepared for you.;2;;
-#;2;Eagle;right;I told you that you can beat me, but you didn't listen.;3;;
-#;3;Eagle;right;Well, at least you’ll add some company to my collections.;4;;
-#;4;Eagle;right;Rest in peace, my dear competitor. Your race is over, and my victory record continues.;5;;
-END;5;;;;;
+#;0;Bird;right;......;1;;
+#;1;Man;left;......;2;;
+#;2;Bird;right;......;3;;
+#;3;Bird;right;......;4;;
+END;4;;;;;;

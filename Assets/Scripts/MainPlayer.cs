@@ -1,3 +1,5 @@
+using System.Collections;
+using Unity.VisualScripting.AssemblyQualifiedNameParser;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,22 +13,23 @@ public class MainPlayer : MonoBehaviour
     [SerializeField] private float trapCheck_xPos = 0.5f;
     [SerializeField] private float itemCheck_yPos = 0.5f;
     [Header("Player Info")]
+    [SerializeField] private float stamina = .3f;
     private float flip_offset = 0.3f;
     private float xInput;
     private float yInput;
     [Header("Move Info")]
-    [SerializeField] private float speed = 8f;
+    [SerializeField] private float speed;
     [SerializeField] private float jumpHeight;
 
     [Header("Dash Info")]
-    [SerializeField] private float dashSpeed = 12f;
+    [SerializeField] private float dashSpeed;
     [SerializeField] private GameObject ghost;
     [SerializeField] private int ghostNum = 3;
     private float ghostTime;
-    [SerializeField] private float dashDuration = .3f;
+    private float dashDuration;
     private float dashTimer;
     [Header("Cooldown Info")]
-    [SerializeField] private float stamina = 3f;
+    [SerializeField] private float dashCooldownTime = 3f;
     [Header("Audio Info")]
 
 
@@ -52,7 +55,7 @@ public class MainPlayer : MonoBehaviour
     private bool isDead;
     private bool isTrapped;
     private bool isFall;
-    private bool isPoisoned;
+    private bool isItemDetected;
     protected int facingDir = 1;
     protected bool facingRight = true;
     private bool allowMoving = false;
@@ -60,12 +63,11 @@ public class MainPlayer : MonoBehaviour
 
     protected void Start()
     {
-        initialize();
-        SetBaseState();
         SetInitialState();
         anim = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        currentDashCooldownTime = stamina;
+        currentDashCooldownTime = dashCooldownTime;
+        dashDuration = stamina;
         //GameObject timer = transform.Find("Timer").gameObject;
         //dashCoolDownTimer = timer.GetComponentInChildren<DashCoolDownTimer>();
     }
@@ -111,7 +113,7 @@ public class MainPlayer : MonoBehaviour
             CheckFall();
             Move();
             CheckInput();
-            CheckPotion();
+            GetPotion();
             FlipController();
             GenerateGhost();
             AnimatorController();
@@ -132,6 +134,7 @@ public class MainPlayer : MonoBehaviour
 
     public void SetIsHurt(bool _isHurt)
     {
+        Debug.Log($"SetIsHurt called. isHurt: {_isHurt}, frame: {Time.frameCount}");
         isHurt = _isHurt;
         IsHurtAnim();
     }
@@ -149,12 +152,13 @@ public class MainPlayer : MonoBehaviour
         IsHurtAnim();
         SetVelocity(0, jumpHeight);
         Destroy(GetComponent<Collider2D>());
+        isHurt = false;
     }
 
     private void SceneChangeManager()
     {
 
-        if (isTrapped || isPoisoned)
+        if (isTrapped)
         {
             JumpToTrapDeath();
             return;
@@ -171,89 +175,25 @@ public class MainPlayer : MonoBehaviour
 
     }
 
-    private void CheckPotion()
+    private void GetPotion()
     {
-        Vector2[] horizontalOffsets =
-    {
-        Vector2.zero,
-        new Vector2(0, itemCheck_yPos),
-        new Vector2(0, -itemCheck_yPos)
-    };
-
-        Vector2[] verticalOffsets =
+        RaycastHit2D get = Physics2D.Raycast(itemCheck.position, Vector2.right, itemCheckDistance * facingDir, whatIsItem);
+        if (get)
         {
-        Vector2.zero,
-        new Vector2(headCheck_xPos, 0),
-        new Vector2(-headCheck_xPos, 0)
-    };
+            Potion potion = get.collider.gameObject.GetComponent<Potion>();
+            int id = potion.GetId();
 
-        foreach (var offset in horizontalOffsets)
-        {
-            RaycastHit2D raycast = Physics2D.Raycast(
-                itemCheck.position + (Vector3)offset,
-                facingDir * Vector2.right,
-                itemCheckDistance,
-                whatIsItem
-            );
-
-            if (raycast)
+            switch (id)
             {
-                GetPotion(raycast);
-                return;
+                case 0:
+                    break;
             }
         }
-
-        foreach (var offset in verticalOffsets)
-        {
-            RaycastHit2D raycast = Physics2D.Raycast(
-                headCheck.position + (Vector3)offset,
-                Vector2.up,
-                headCheckDistance,
-                whatIsItem
-            );
-
-            if (raycast)
-            {
-                GetPotion(raycast);
-            }
-        }
-    }
-
-    private void GetPotion(RaycastHit2D raycast)
-    {
-        Potions potion = raycast.collider.gameObject.GetComponent<Potions>();
-        int id = potion.GetId();
-
-        switch (id)
-        {
-            case 0:
-                Debug.Log("Poison");
-                isPoisoned = true;
-                isHurt = true;
-                break;
-            case 1:
-                Debug.Log("Base Potion");
-                GetBaseState();
-                break;
-            case 2:
-                Debug.Log("Speed Potion");
-                speed += .5f;
-                break;
-            case 3:
-                Debug.Log("Dash Speed Potion");
-                dashSpeed += 1f;
-                break;
-            case 4:
-                Debug.Log("Dash Cooldown Potion");
-                stamina -= .5f;
-                break;
-        }
-        potion.UpdateStatus(true);
     }
 
     private void CheckFall()
     {
-        if (isHurt || isTrapped || isDead || isPoisoned) return;
+        if (isHurt || isTrapped || isDead) return;
         if (transform.position.y < -10f && transform.position.y > -20f)
         {
             isFall = true;
@@ -279,7 +219,7 @@ public class MainPlayer : MonoBehaviour
 
     private void Move()
     {
-        currentDashCooldownTime = stamina;
+        currentDashCooldownTime = dashCooldownTime;
         if ((xInput != 0 || xInput == 0 && isGrounded) && dashTimer < 0)
         {
             SetVelocity(xInput * speed, rb.velocity.y);
@@ -303,12 +243,10 @@ public class MainPlayer : MonoBehaviour
 
     private void Jump()
     {
-        if (jumpCount < 2)
-        {
-            jumpCount++;
-            SetVelocity(rb.velocity.x, jumpHeight);
-        }
-
+        jumpCount++;
+        SetVelocity(rb.velocity.x, jumpHeight);
+        if (jumpCount == 2)
+            jumpCount = 0;
     }
 
     private void CheckInput()
@@ -318,13 +256,12 @@ public class MainPlayer : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (isGrounded || jumpCount < 2)
+            if (isGrounded && !isHeadHit)
+                Jump();
+
+            if (!isGrounded && jumpCount == 1)
             {
                 Jump();
-            }
-            if (isGrounded && jumpCount == 2)
-            {
-                jumpCount = 0;
             }
         }
 
@@ -372,6 +309,12 @@ public class MainPlayer : MonoBehaviour
         raycast3 = GetVerticalRaycastHit(headCheck, -headCheck_xPos, Vector2.up, headCheckDistance, whatIsGround);
 
         isHeadHit = GetRaycastResult(raycast1, raycast2, raycast3);
+
+        raycast1 = GetHorizontalRaycastHit(itemCheck, 0, facingDir * Vector2.right, itemCheckDistance, whatIsItem);
+        raycast2 = GetHorizontalRaycastHit(itemCheck, itemCheck_yPos, facingDir * Vector2.right, itemCheckDistance, whatIsItem);
+        raycast3 = GetHorizontalRaycastHit(itemCheck, -itemCheck_yPos, facingDir * Vector2.right, itemCheckDistance, whatIsItem);
+
+        isItemDetected = GetRaycastResult(raycast1, raycast2, raycast3);
     }
 
     private bool GetRaycastResult(RaycastHit2D raycast1, RaycastHit2D raycast2, RaycastHit2D raycast3)
@@ -488,58 +431,24 @@ public class MainPlayer : MonoBehaviour
         float focus = PlayerPrefs.GetFloat("focus", 0);
         float courage = PlayerPrefs.GetFloat("courage", 0);
         float determination = PlayerPrefs.GetFloat("determination", 0);
-        float confidence = PlayerPrefs.GetFloat("confidence", 0);
-        Debug.Log("focus: " + focus + ", courage: " + courage + ", determination: " + determination + ", confidence: " + confidence);
+        Debug.Log("focus: " + focus + ", courage: " + courage + ", determination: " + determination);
         float _duration = 0, _speed = 0, _dashSpeed = 0;
         if (focus != 0)
         {
-            _duration += 1f;
+            _duration = .3f;
         }
 
         if (courage != 0)
         {
-            _speed += 1f;
+            _speed = 2f;
         }
         if (determination != 0)
         {
-            _dashSpeed += 2f;
-        }
-        if (confidence != 0)
-        {
-            _duration += .5f;
-            _speed += .5f;
-            _dashSpeed += 1f;
+            _dashSpeed = 2f;
         }
 
-        stamina -= _duration;
+        stamina += _duration;
         speed += _speed;
         dashSpeed += _dashSpeed;
-    }
-
-    private void SetBaseState()
-    {
-        PlayerPrefs.SetFloat("base_stamina", stamina);
-        PlayerPrefs.SetFloat("base_speed", speed);
-        PlayerPrefs.SetFloat("base_dash_speed", dashSpeed);
-        PlayerPrefs.Save();
-    }
-
-    private void GetBaseState()
-    {
-        stamina = PlayerPrefs.GetFloat("base_stamina", 3f);
-        speed = PlayerPrefs.GetFloat("base_speed", 8f);
-        dashSpeed = PlayerPrefs.GetFloat("base_dash_speed", 12f);
-    }
-
-    private void initialize()
-    {
-        PlayerPrefs.SetFloat("focus", 0);
-        PlayerPrefs.SetFloat("courage", 0);
-        PlayerPrefs.SetFloat("determination", 0);
-        PlayerPrefs.SetFloat("inspection", 0);
-        PlayerPrefs.SetFloat("confidence", 0);
-        PlayerPrefs.SetFloat("angry", 0);
-        PlayerPrefs.SetFloat("coward", 0);
-        PlayerPrefs.Save();
     }
 }

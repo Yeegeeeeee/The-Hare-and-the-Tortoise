@@ -1,18 +1,27 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{462E674D-D3B4-EFEB-DB5F-1456434140DA}"
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ink-Libraries", "Ink-Libraries.csproj", "{f50609b5-ce05-bf0c-2235-2385cb69a56a}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{4d672e46-b4d3-ebef-db5f-1456434140da}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InkEditor", "InkEditor.csproj", "{4d0ea434-6cd9-a117-4f9f-d316475c1214}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{43e41f1b-0894-ad11-09fa-0c1e0e878aa7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{462E674D-D3B4-EFEB-DB5F-1456434140DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{462E674D-D3B4-EFEB-DB5F-1456434140DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{462E674D-D3B4-EFEB-DB5F-1456434140DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{462E674D-D3B4-EFEB-DB5F-1456434140DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{f50609b5-ce05-bf0c-2235-2385cb69a56a}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{f50609b5-ce05-bf0c-2235-2385cb69a56a}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4d672e46-b4d3-ebef-db5f-1456434140da}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4d672e46-b4d3-ebef-db5f-1456434140da}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4d0ea434-6cd9-a117-4f9f-d316475c1214}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4d0ea434-6cd9-a117-4f9f-d316475c1214}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43e41f1b-0894-ad11-09fa-0c1e0e878aa7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43e41f1b-0894-ad11-09fa-0c1e0e878aa7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

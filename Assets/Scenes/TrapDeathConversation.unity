@@ -136,7 +136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1940558817328452016, guid: 2613fb02ccfce1d4ab2440d93eb64ef6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14.45
+      value: 11.5
       objectReference: {fileID: 0}
     - target: {fileID: 1940558817328452016, guid: 2613fb02ccfce1d4ab2440d93eb64ef6, type: 3}
       propertyPath: m_LocalPosition.y
@@ -179,11 +179,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2613fb02ccfce1d4ab2440d93eb64ef6, type: 3}
---- !u!1 &665040140 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 335271308396095470, guid: 2613fb02ccfce1d4ab2440d93eb64ef6, type: 3}
-  m_PrefabInstance: {fileID: 665040139}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1506484849
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -231,10 +226,6 @@ PrefabInstance:
     - target: {fileID: 1344321786544315152, guid: aaff9e381781cfc429fc4ed01012a712, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5373818073549384515, guid: aaff9e381781cfc429fc4ed01012a712, type: 3}
-      propertyPath: orthographic size
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5402868192278111556, guid: aaff9e381781cfc429fc4ed01012a712, type: 3}
       propertyPath: m_Name
@@ -316,10 +307,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2247707106193647771, guid: 0ec5f52d19ee4524bb9807bd966c256f, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2247707106193647771, guid: 0ec5f52d19ee4524bb9807bd966c256f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -378,7 +365,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7598374266371555285, guid: 710e1de70a1279249b1d6fa2453a63e1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -14.5
+      value: -10.74
       objectReference: {fileID: 0}
     - target: {fileID: 7598374266371555285, guid: 710e1de70a1279249b1d6fa2453a63e1, type: 3}
       propertyPath: m_LocalPosition.y
@@ -425,11 +412,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 710e1de70a1279249b1d6fa2453a63e1, type: 3}
---- !u!1 &1899483367 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8552082544609452518, guid: 710e1de70a1279249b1d6fa2453a63e1, type: 3}
-  m_PrefabInstance: {fileID: 1899483366}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5762013135283066277
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -450,14 +432,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -163.83
       objectReference: {fileID: 0}
-    - target: {fileID: 4209764534254335469, guid: a5a37899475431448836350a9664f349, type: 3}
-      propertyPath: leftMan
-      value: 
-      objectReference: {fileID: 1899483367}
-    - target: {fileID: 4209764534254335469, guid: a5a37899475431448836350a9664f349, type: 3}
-      propertyPath: rightBird
-      value: 
-      objectReference: {fileID: 665040140}
     - target: {fileID: 4209764534254335469, guid: a5a37899475431448836350a9664f349, type: 3}
       propertyPath: dialogDataFile
       value: 
