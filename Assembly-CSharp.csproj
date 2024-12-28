@@ -70,14 +70,18 @@
     <Compile Include="Assets\Scripts\BasicScripts\Elevator.cs" />
     <Compile Include="Assets\Ethan the Hero\Script\PlayerAnimation.cs" />
     <Compile Include="Assets\Ethan the Hero\Script\PlayerAttackMethod.cs" />
+    <Compile Include="Assets\Scripts\Potions.cs" />
     <Compile Include="Assets\Scripts\HurtAnimation.cs" />
     <Compile Include="Assets\Scripts\BasicScripts\Train_HealthBar_UI.cs" />
     <Compile Include="Assets\Scripts\BasicScripts\DamageNum.cs" />
+    <Compile Include="Assets\Scripts\DashSpeedPotion.cs" />
     <Compile Include="Assets\Scripts\BasicScripts\Enemy_Big_Cultist.cs" />
     <Compile Include="Assets\Scripts\BasicScripts\Strength_Potion.cs" />
+    <Compile Include="Assets\Scripts\PotionGroup.cs" />
     <Compile Include="Assets\Scripts\BasicScripts\BossAnimEvent.cs" />
     <Compile Include="Assets\Scripts\MainPlayer.cs" />
     <Compile Include="Assets\Scripts\BasicScripts\AttackCooldown_Potion.cs" />
+    <Compile Include="Assets\Scripts\ReadOnlyAttribute.cs" />
     <Compile Include="Assets\Scripts\BasicScripts\Enemy_HealthBar_UI.cs" />
     <Compile Include="Assets\Scripts\BasicScripts\ComboCoolDownTimer.cs" />
     <Compile Include="Assets\Scripts\BasicScripts\MainCamera.cs" />
@@ -95,6 +99,7 @@
     <Compile Include="Assets\Scripts\BasicScripts\UI_FadeScreen.cs" />
     <Compile Include="Assets\Scripts\BottomDetectLine.cs" />
     <Compile Include="Assets\Scripts\BasicScripts\Boss_HealthBar_UI.cs" />
+    <Compile Include="Assets\Scripts\Poison.cs" />
     <Compile Include="Assets\Scripts\BasicScripts\EnemyAnimEvent.cs" />
     <Compile Include="Assets\Scripts\BasicScripts\TrainRobotAnimEvent.cs" />
     <Compile Include="Assets\Scripts\BasicScripts\PlayerAnimEvent.cs" />
@@ -106,10 +111,13 @@
     <Compile Include="Assets\Scripts\BasicScripts\DetectLine.cs" />
     <Compile Include="Assets\Scripts\Bird.cs" />
     <Compile Include="Assets\Scripts\BasicScripts\Potion.cs" />
+    <Compile Include="Assets\Scripts\BasePotion.cs" />
     <Compile Include="Assets\Scripts\Item.cs" />
+    <Compile Include="Assets\Scripts\DashCooldownTimePotion.cs" />
     <Compile Include="Assets\Scripts\BasicScripts\TrainingRobot.cs" />
     <Compile Include="Assets\Scripts\CountDownClock.cs" />
     <Compile Include="Assets\Ethan the Hero\Script\PlayerMovement\PlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\SpeedPotion.cs" />
     <Compile Include="Assets\Scripts\BasicScripts\Enemy_Cultist_Assassin.cs" />
     <Compile Include="Assets\Scripts\BasicScripts\DashCoolDownTimer.cs" />
   </ItemGroup>

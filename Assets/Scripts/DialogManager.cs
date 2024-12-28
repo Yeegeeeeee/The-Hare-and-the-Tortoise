@@ -99,7 +99,7 @@ public class DialogManager : MonoBehaviour
         PlayerPrefs.SetFloat("confidence", 0);
         PlayerPrefs.SetFloat("angry", 0);
         PlayerPrefs.SetFloat("coward", 0);
-
+        PlayerPrefs.Save();
     }
 
     private void CheckInput()
