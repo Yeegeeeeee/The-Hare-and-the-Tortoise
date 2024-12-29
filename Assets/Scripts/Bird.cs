@@ -21,6 +21,7 @@ public class Bird : MonoBehaviour
     [Header("Platform")]
     [SerializeField] private LayerMask whatIsPlatform;
     [SerializeField] private float platformCheckDistance;
+    [SerializeField] private float victoryCheckDistance;
     [SerializeField] private float restPeriod = 5f;
     [SerializeField] private float p_xOffset;
     [SerializeField] private float p_yOffset;
@@ -85,7 +86,7 @@ public class Bird : MonoBehaviour
 
     private void CheckVictory()
     {
-        RaycastHit2D victory = Physics2D.Raycast(itemCheck.position, Vector3.right, horizontalCheckDistance, whatIsItem);
+        RaycastHit2D victory = Physics2D.Raycast(itemCheck.position, Vector3.right, horizontalCheckDistance, detectLine);
         if (victory)
         {
             SceneManager.LoadScene("LoseConversation");
@@ -99,6 +100,7 @@ public class Bird : MonoBehaviour
         Gizmos.DrawLine(itemCheck.position, new Vector3(itemCheck.position.x + horizontalCheckDistance, itemCheck.position.y));
         Gizmos.color = Color.blue;
         Gizmos.DrawLine(itemCheck.position, new Vector3(itemCheck.position.x, itemCheck.position.y - platformCheckDistance));
+        Gizmos.DrawLine(itemCheck.position, new Vector3(itemCheck.position.x + victoryCheckDistance, itemCheck.position.y));
     }
 
     protected void CollisionTest()

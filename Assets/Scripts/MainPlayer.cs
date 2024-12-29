@@ -38,6 +38,7 @@ public class MainPlayer : MonoBehaviour
     [SerializeField] protected LayerMask whatIsGround;
     [SerializeField] protected Transform itemCheck;
     [SerializeField] protected float itemCheckDistance;
+    [SerializeField] protected float victoryCheckDistance;
     [SerializeField] private LayerMask whatIsItem;
     [SerializeField] private LayerMask whatIsTrap;
     [SerializeField] private LayerMask detectLine;
@@ -146,7 +147,7 @@ public class MainPlayer : MonoBehaviour
 
     private void CheckVictory()
     {
-        RaycastHit2D victory = Physics2D.Raycast(itemCheck.position, Vector2.right * facingDir, itemCheckDistance, detectLine);
+        RaycastHit2D victory = Physics2D.Raycast(itemCheck.position, Vector2.right * facingDir, victoryCheckDistance, detectLine);
         if (victory)
         {
             isVictory = true;
@@ -421,12 +422,21 @@ public class MainPlayer : MonoBehaviour
         DrawVerticalLines(groundCheck, -groundCheckDistance, trapCheck_xPos, 3, Color.white);
         DrawHorizontalLines(itemCheck, itemCheckDistance, itemCheck_yPos, 3, Color.red);
         DrawVerticalLines(headCheck, headCheckDistance, headCheck_xPos, 3, Color.yellow);
+        DrawHorizontalLines(itemCheck, victoryCheckDistance, 0, 1, Color.blue);
     }
 
     private void DrawHorizontalLines(Transform check, float distance, float yPos, int numberOfIterations, Color color)
     {
         Gizmos.color = color;
-        float[] positions = { 0, yPos, -yPos };
+        float[] positions = new float[0];
+        if (numberOfIterations == 1)
+        {
+            positions = new float[] { 0 };
+        }
+        else if (numberOfIterations == 3)
+        {
+            positions = new float[] { 0, yPos, -yPos };
+        }
         for (int i = 0; i < numberOfIterations; i++)
         {
             Gizmos.DrawLine(new Vector3(check.position.x, check.position.y + positions[i]), new Vector3(check.position.x + facingDir * distance, check.position.y + positions[i]));
@@ -436,7 +446,15 @@ public class MainPlayer : MonoBehaviour
     private void DrawVerticalLines(Transform check, float distance, float xPos, int numberOfIterations, Color color)
     {
         Gizmos.color = color;
-        float[] positions = { 0, xPos, -xPos };
+        float[] positions = new float[0];
+        if (numberOfIterations == 1)
+        {
+            positions = new float[] { 0 };
+        }
+        else if (numberOfIterations == 3)
+        {
+            positions = new float[] { 0, xPos, -xPos };
+        }
         for (int i = 0; i < numberOfIterations; i++)
         {
             Gizmos.DrawLine(new Vector3(check.position.x + positions[i], check.position.y), new Vector3(check.position.x + positions[i], check.position.y + distance));

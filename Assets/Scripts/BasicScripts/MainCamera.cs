@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using UnityEngine;
+
 
 public class MainCamera : MonoBehaviour
 {
@@ -13,9 +15,16 @@ public class MainCamera : MonoBehaviour
 
     private Vector3 velocity = Vector3.zero;
 
+    private Dictionary<Transform, Vector3> initialOffsets = new Dictionary<Transform, Vector3>();
+
     void Start()
     {
         lastXPos = transform.position.x;
+
+        foreach (Transform child in sea)
+        {
+            initialOffsets[child] = child.position - sea.position;
+        }
     }
 
     void Update()
@@ -43,6 +52,14 @@ public class MainCamera : MonoBehaviour
     private void UpdateParallax(Transform layer, float amount, float parallaxEffect)
     {
         layer.position += new Vector3(amount * parallaxEffect, 0, 0);
+
+        foreach (Transform child in layer)
+        {
+            if (initialOffsets.ContainsKey(child))
+            {
+                child.position = layer.position + initialOffsets[child];
+            }
+        }
     }
 
     public void StartMovingCamera()
