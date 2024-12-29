@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
 
 public class Bird : MonoBehaviour
@@ -23,6 +24,7 @@ public class Bird : MonoBehaviour
     [SerializeField] private float restPeriod = 5f;
     [SerializeField] private float p_xOffset;
     [SerializeField] private float p_yOffset;
+    [SerializeField] private LayerMask detectLine;
     private bool allowMoving = false;
     private Vector3 startPoint;
     private bool isAngry = false;
@@ -58,6 +60,7 @@ public class Bird : MonoBehaviour
                 Move();
             CheckForItems();
             CheckForPlatform();
+            CheckVictory();
         }
         AnimController();
     }
@@ -78,6 +81,15 @@ public class Bird : MonoBehaviour
     private void DropTrap()
     {
 
+    }
+
+    private void CheckVictory()
+    {
+        RaycastHit2D victory = Physics2D.Raycast(itemCheck.position, Vector3.right, horizontalCheckDistance, whatIsItem);
+        if (victory)
+        {
+            SceneManager.LoadScene("LoseConversation");
+        }
     }
 
     protected void OnDrawGizmos()

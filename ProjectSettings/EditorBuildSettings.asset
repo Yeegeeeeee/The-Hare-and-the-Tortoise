@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TrapDeathConversation.unity
     guid: 4d149bee07de9cd44860f1701b200f18
+  - enabled: 1
+    path: Assets/Scenes/VictoryConversation.unity
+    guid: dd11dc3a12e7c164f9e94daa0c6e750b
+  - enabled: 1
+    path: Assets/Scenes/LoseConversation.unity
+    guid: 01b89c17813ca0848aea34c3540ffb84
   m_configObjects: {}

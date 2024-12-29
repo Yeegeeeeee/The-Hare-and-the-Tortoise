@@ -52,15 +52,17 @@ public class MainPlayer : MonoBehaviour
     private bool isDead;
     private bool isTrapped;
     private bool isFall;
+    private bool isDetected;
     private bool isPoisoned;
     protected int facingDir = 1;
     protected bool facingRight = true;
     private bool allowMoving = false;
     private int jumpCount;
+    private bool isVictory;
 
     protected void Start()
     {
-        initialize();
+        // initialize();
         SetBaseState();
         SetInitialState();
         anim = GetComponentInChildren<Animator>();
@@ -113,6 +115,7 @@ public class MainPlayer : MonoBehaviour
             CheckInput();
             CheckPotion();
             FlipController();
+            CheckVictory();
             GenerateGhost();
             AnimatorController();
         }
@@ -141,6 +144,16 @@ public class MainPlayer : MonoBehaviour
 
     }
 
+    private void CheckVictory()
+    {
+        RaycastHit2D victory = Physics2D.Raycast(itemCheck.position, Vector2.right * facingDir, itemCheckDistance, detectLine);
+        if (victory)
+        {
+            isVictory = true;
+            SceneChangeManager();
+        }
+    }
+
     private void HandleHurt()
     {
         Debug.Log("Handle Hurt");
@@ -162,6 +175,11 @@ public class MainPlayer : MonoBehaviour
         if (isFall)
         {
             JumpToFallDeath();
+            return;
+        }
+        if (isVictory)
+        {
+            JumpToVictory();
             return;
         }
     }
@@ -264,6 +282,11 @@ public class MainPlayer : MonoBehaviour
     private void JumpToFallDeath()
     {
         SceneManager.LoadScene("FallDeathConversation");
+    }
+
+    private void JumpToVictory()
+    {
+        SceneManager.LoadScene("VictoryConversation");
     }
 
     private void JumpToTrapDeath()
