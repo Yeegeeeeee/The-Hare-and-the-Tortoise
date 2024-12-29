@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class DialogManager : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class DialogManager : MonoBehaviour
     [SerializeField] private GameObject optionButton;
     [SerializeField] private Transform buttonGroup;
     [SerializeField] private bool isStart;
+    [SerializeField] private float textSpeed = 0.05f;
 
     private TMP_Text text;
     private SpriteRenderer man;
@@ -33,6 +35,8 @@ public class DialogManager : MonoBehaviour
     private Stack<string> effectHistory = new Stack<string>();
     private Stack<bool> optionDialogHistory = new Stack<bool>();
     private bool optionTime;
+    private bool isMouseClicked;
+    private Coroutine currentCoroutine;
 
     // Start is called before the first frame update
     void Start()
@@ -89,6 +93,15 @@ public class DialogManager : MonoBehaviour
         nextButton.gameObject.SetActive(true);
     }
 
+    private void StopCurrentCoroutine()
+    {
+        if (currentCoroutine != null)
+        {
+            StopCoroutine(currentCoroutine);
+            currentCoroutine = null;
+        }
+    }
+
     private void initialize()
     {
         dialogIndex = 0;
@@ -109,9 +122,13 @@ public class DialogManager : MonoBehaviour
             ShowDialogRow();
         }
 
-        if (Input.GetAxis("Mouse ScrollWheel") > 0f)
+        if (Input.GetAxis("Mouse ScrollWheel") > 0f && dialogHistory.Count > 1 && optionDialogHistory.Count > 1)
         {
             GoBackToPreviousState();
+        }
+        if (Input.GetMouseButtonDown(0))
+        {
+            isMouseClicked = true;
         }
     }
 
@@ -128,7 +145,31 @@ public class DialogManager : MonoBehaviour
             DisableLeft();
             EnableRight();
         }
-        text.text = dialogText;
+        currentCoroutine = StartCoroutine(ShowTextCharacterByCharacter(dialogText));
+    }
+
+
+    private IEnumerator ShowTextCharacterByCharacter(string dialogText)
+    {
+        isMouseClicked = false;
+        nextButton.gameObject.SetActive(false);
+        ClearText();
+
+        foreach (char dialogChar in dialogText)
+        {
+            if (isMouseClicked)
+            {
+                text.text = dialogText;
+                nextButton.gameObject.SetActive(true);
+                yield break;
+            }
+
+
+            text.text += dialogChar;
+            yield return new WaitForSeconds(textSpeed);
+        }
+
+        nextButton.gameObject.SetActive(true);
     }
 
     private void GenerateButton(int _index)
@@ -169,6 +210,7 @@ public class DialogManager : MonoBehaviour
 
     private void ShowDialogRow()
     {
+        StopCurrentCoroutine();
         for (int i = 0; i < rows.Length; i++)
         {
             string[] cell = rows[i].Split(';');
@@ -204,7 +246,8 @@ public class DialogManager : MonoBehaviour
                 SceneChangeManager();
             }
         }
-        // Debug.Log("Current Stack: " + string.Join(", ", dialogHistory.ToArray()));
+        DisplayStack(dialogHistory, "dialogHistory");
+        // DisplayStack(optionDialogHistory, "optionDialogHistory");
     }
 
     private void SceneChangeManager()
@@ -241,22 +284,36 @@ public class DialogManager : MonoBehaviour
 
     private void GoBackToPreviousState()
     {
-        if (dialogHistory.Count > 0)
+        StopCurrentCoroutine();
+        ClearText();
+        dialogHistory.Pop();
+        dialogIndex = dialogHistory.Peek();
+        ClearButtonGroup();
+        optionDialogHistory.Pop();
+        bool option = optionDialogHistory.Peek();
+        Debug.Log("current state after rolling: " + option);
+        if (option)
+            ClearEffect();
+        ShowDialogRow();
+
+    }
+
+    private void DisplayStack<T>(Stack<T> stack, string stackName)
+    {
+        if (stack.Count == 0)
         {
-            dialogHistory.Pop();
-            dialogIndex = dialogHistory.Peek();
-            ClearButtonGroup();
-            optionDialogHistory.Pop();
-            bool option = optionDialogHistory.Peek();
-            Debug.Log("current state after rolling: " + option);
-            if (option)
-                ClearEffect();
-            ShowDialogRow();
+            Debug.Log($"{stackName} is empty.");
+            return;
         }
-        else
+
+        string stackContent = $"{stackName} (top to bottom): ";
+        foreach (T item in stack)
         {
-            Debug.Log("No previous dialog state to return to.");
+            stackContent += item + " -> ";
         }
+
+        stackContent = stackContent.TrimEnd(' ', '-', '>');
+        Debug.Log(stackContent);
     }
 
     private void ClearButtonGroup()
