@@ -329,7 +329,6 @@ public class MainPlayer : MonoBehaviour
     {
         if (jumpCount < 2)
         {
-            jumpCount++;
             SetVelocity(rb.velocity.x, jumpHeight);
         }
 
@@ -342,11 +341,12 @@ public class MainPlayer : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (isGrounded || jumpCount < 2)
+            if (isGrounded || jumpCount < 1)
             {
                 Jump();
+                jumpCount++;
             }
-            if (isGrounded && jumpCount == 2)
+            if (isGrounded && jumpCount > 0)
             {
                 jumpCount = 0;
             }
