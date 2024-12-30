@@ -361,6 +361,16 @@ public class MainPlayer : MonoBehaviour
         }
     }
 
+    public float GetDashCooldownTimer()
+    {
+        return dashCooldownTimer;
+    }
+
+    public float getDashCooldownTime()
+    {
+        return currentDashCooldownTime;
+    }
+
     private void GenerateGhost()
     {
         if (dashTimer > 0 && Time.time > ghostTime)

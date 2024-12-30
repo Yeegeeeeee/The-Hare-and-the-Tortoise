@@ -69,11 +69,14 @@
     <Compile Include="Assets\Scripts\BasicScripts\Health_Potion.cs" />
     <Compile Include="Assets\Scripts\BasicScripts\Elevator.cs" />
     <Compile Include="Assets\Ethan the Hero\Script\PlayerAnimation.cs" />
+    <Compile Include="Assets\Scripts\DashBar.cs" />
     <Compile Include="Assets\Ethan the Hero\Script\PlayerAttackMethod.cs" />
     <Compile Include="Assets\Scripts\Potions.cs" />
+    <Compile Include="Assets\GameUI\Demigiant\DOTween\Modules\DOTweenModuleUtils.cs" />
     <Compile Include="Assets\Scripts\HurtAnimation.cs" />
     <Compile Include="Assets\Scripts\BasicScripts\Train_HealthBar_UI.cs" />
     <Compile Include="Assets\Scripts\BasicScripts\DamageNum.cs" />
+    <Compile Include="Assets\GameUI\Demigiant\DOTweenPro\DOTweenDeAudio.cs" />
     <Compile Include="Assets\Scripts\DashSpeedPotion.cs" />
     <Compile Include="Assets\Scripts\BasicScripts\Enemy_Big_Cultist.cs" />
     <Compile Include="Assets\Scripts\BasicScripts\Strength_Potion.cs" />
@@ -84,12 +87,16 @@
     <Compile Include="Assets\Scripts\ReadOnlyAttribute.cs" />
     <Compile Include="Assets\Scripts\BasicScripts\Enemy_HealthBar_UI.cs" />
     <Compile Include="Assets\Scripts\BasicScripts\ComboCoolDownTimer.cs" />
+    <Compile Include="Assets\Scripts\PausePanel.cs" />
     <Compile Include="Assets\Scripts\BasicScripts\MainCamera.cs" />
+    <Compile Include="Assets\GameUI\Demigiant\DOTween\Modules\DOTweenModuleEPOOutline.cs" />
     <Compile Include="Assets\Scripts\BasicScripts\Dash_Potion.cs" />
     <Compile Include="Assets\Scripts\BasicScripts\TrainDoorLine.cs" />
     <Compile Include="Assets\Scripts\DialogManager.cs" />
     <Compile Include="Assets\Scripts\BasicScripts\Timer.cs" />
+    <Compile Include="Assets\GameUI\Demigiant\DOTween\Modules\DOTweenModulePhysics2D.cs" />
     <Compile Include="Assets\Scripts\BasicScripts\DoorLine.cs" />
+    <Compile Include="Assets\GameUI\Demigiant\DOTweenPro\DOTweenTextMeshPro.cs" />
     <Compile Include="Assets\Scripts\Ghost.cs" />
     <Compile Include="Assets\Scripts\BasicScripts\Background.cs" />
     <Compile Include="Assets\Scripts\Trap.cs" />
@@ -100,8 +107,14 @@
     <Compile Include="Assets\Scripts\BottomDetectLine.cs" />
     <Compile Include="Assets\Scripts\BasicScripts\Boss_HealthBar_UI.cs" />
     <Compile Include="Assets\Scripts\Poison.cs" />
+    <Compile Include="Assets\Scripts\GamePanel.cs" />
+    <Compile Include="Assets\GameUI\Demigiant\DOTween\Modules\DOTweenModuleUI.cs" />
+    <Compile Include="Assets\GameUI\Demigiant\DOTweenPro\DOTweenAnimation.cs" />
     <Compile Include="Assets\Scripts\BasicScripts\EnemyAnimEvent.cs" />
+    <Compile Include="Assets\GameUI\Demigiant\DOTween\Modules\DOTweenModuleAudio.cs" />
     <Compile Include="Assets\Scripts\BasicScripts\TrainRobotAnimEvent.cs" />
+    <Compile Include="Assets\TeenZombie\UI Bars\Scripts\tz_UI_barController.cs" />
+    <Compile Include="Assets\GameUI\Demigiant\DOTweenPro\DOTweenDeUnityExtended.cs" />
     <Compile Include="Assets\Scripts\BasicScripts\PlayerAnimEvent.cs" />
     <Compile Include="Assets\Scripts\BasicScripts\Train_Twisted_Cultist.cs" />
     <Compile Include="Assets\Scripts\BasicScripts\BossAreaLine.cs" />
@@ -112,13 +125,19 @@
     <Compile Include="Assets\Scripts\Bird.cs" />
     <Compile Include="Assets\Scripts\BasicScripts\Potion.cs" />
     <Compile Include="Assets\Scripts\BasePotion.cs" />
+    <Compile Include="Assets\GameUI\Demigiant\DOTweenPro\DOTweenProShortcuts.cs" />
     <Compile Include="Assets\Scripts\Item.cs" />
     <Compile Include="Assets\Scripts\DashCooldownTimePotion.cs" />
+    <Compile Include="Assets\Scripts\StartPanel.cs" />
     <Compile Include="Assets\Scripts\BasicScripts\TrainingRobot.cs" />
     <Compile Include="Assets\Scripts\CountDownClock.cs" />
+    <Compile Include="Assets\GameUI\Demigiant\DOTweenPro\DOTweenTk2d.cs" />
     <Compile Include="Assets\Ethan the Hero\Script\PlayerMovement\PlayerMovement.cs" />
+    <Compile Include="Assets\GameUI\Demigiant\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
     <Compile Include="Assets\Scripts\SpeedPotion.cs" />
+    <Compile Include="Assets\GameUI\Demigiant\DOTween\Modules\DOTweenModulePhysics.cs" />
     <Compile Include="Assets\Scripts\BasicScripts\Enemy_Cultist_Assassin.cs" />
+    <Compile Include="Assets\GameUI\Demigiant\DOTween\Modules\DOTweenModuleSprite.cs" />
     <Compile Include="Assets\Scripts\BasicScripts\DashCoolDownTimer.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -128,22 +147,31 @@
     <None Include="Assets\Warrior free set\License.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
+    <None Include="Assets\GameUI\Demigiant\readme_DOTweenPro.txt" />
+    <None Include="Assets\GameUI\Demigiant\DOTween\DOTween.XML" />
+    <None Include="Assets\GameUI\Demigiant\DemiLib\Core\DemiLib.dll" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
+    <None Include="Assets\GameUI\Demigiant\DOTween\DOTween.dll" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\Resources\GrimWorkbench\Eagle\readme.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
+    <None Include="Assets\GameUI\Demigiant\DOTweenPro\DOTweenPro.dll" />
+    <None Include="Assets\GameUI\Demigiant\DOTweenPro\readme.txt" />
     <None Include="Assets\Resources\GrimWorkbench\Public\Shader\Unlit-Cutout-Color2.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\2DBirds_Pack3\Documentation 1\Documentation.txt" />
+    <None Include="Assets\GameUI\Demigiant\DemiLib\Core\DemiLib.xml" />
+    <None Include="Assets\GameUI\Demigiant\DOTweenPro\DOTweenPro.XML" />
     <None Include="Assets\Doctor_Pack02\Documentation\Documentation.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\BigManJD\readme.txt" />
+    <None Include="Assets\GameUI\Demigiant\DOTween\readme.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
@@ -491,6 +519,18 @@
     </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.9.4\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DOTween">
+      <HintPath>Assets\GameUI\Demigiant\DOTween\DOTween.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DOTweenPro">
+      <HintPath>Assets\GameUI\Demigiant\DOTweenPro\DOTweenPro.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DemiLib">
+      <HintPath>Assets\GameUI\Demigiant\DemiLib\Core\DemiLib.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="netstandard">

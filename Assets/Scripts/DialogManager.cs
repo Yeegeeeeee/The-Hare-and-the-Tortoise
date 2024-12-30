@@ -23,7 +23,11 @@ public class DialogManager : MonoBehaviour
     [SerializeField] private Button nextButton;
     [SerializeField] private GameObject optionButton;
     [SerializeField] private Transform buttonGroup;
+    [Header("Conversation Info")]
     [SerializeField] private bool isStart;
+    [SerializeField] private bool isDead;
+    [SerializeField] private bool isWin;
+    [SerializeField] private bool isLost;
     [SerializeField] private float textSpeed = 0.05f;
 
     private TMP_Text text;
@@ -37,6 +41,8 @@ public class DialogManager : MonoBehaviour
     private bool optionTime;
     private bool isMouseClicked;
     private Coroutine currentCoroutine;
+    private bool retry;
+    private bool rest;
 
     // Start is called before the first frame update
     void Start()
@@ -195,7 +201,12 @@ public class DialogManager : MonoBehaviour
         effectHistory.Push(effect);
         PlayerPrefs.Save();
         Debug.Log("Effect: " + effect + ", value: " + value);
-        CheckEffect();
+        if (isStart)
+            CheckEffect();
+        else
+        {
+            CheckPrefs();
+        }
     }
 
     private void ClearText()
@@ -261,6 +272,22 @@ public class DialogManager : MonoBehaviour
         if (isStart)
         {
             SceneManager.LoadScene("Race");
+            return;
+        }
+        if (isDead)
+        {
+            SceneManager.LoadScene("AfterLife");
+            return;
+        }
+        if (retry)
+        {
+            SceneManager.LoadScene("Race");
+            return;
+        }
+        if (rest)
+        {
+            SceneManager.LoadScene("MainMenu");
+            return;
         }
 
     }
@@ -334,6 +361,23 @@ public class DialogManager : MonoBehaviour
         float _angry = PlayerPrefs.GetFloat("angry", 0);
         float _coward = PlayerPrefs.GetFloat("coward", 0);
         Debug.Log("focus: " + _focus + " courage: " + _courage + " determination: " + _determination + " inspection: " + _inspection + " confidence: " + _confidence + " angry: " + _angry + " coward: " + _coward);
+    }
+
+    private void CheckPrefs()
+    {
+        float _retry = PlayerPrefs.GetFloat("retry", 0);
+        float _rest = PlayerPrefs.GetFloat("rest", 0);
+        if (_retry != 0)
+        {
+            retry = true;
+        }
+        if (_rest != 0)
+        {
+            rest = true;
+        }
+        PlayerPrefs.SetFloat("retry", 0);
+        PlayerPrefs.SetFloat("rest", 0);
+        PlayerPrefs.Save();
     }
 
     private void ClearEffect()

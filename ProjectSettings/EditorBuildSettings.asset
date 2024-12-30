@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 8e2689266a2ac404995daeeca7ebfc25
+  - enabled: 1
     path: Assets/Scenes/Conversation.unity
     guid: 843fc39cef524064192c345839b21f4f
   - enabled: 1
@@ -20,6 +23,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TrapDeathConversation.unity
     guid: 4d149bee07de9cd44860f1701b200f18
+  - enabled: 1
+    path: Assets/Scenes/AfterLife.unity
+    guid: 3a9820b264c3e6c4ab73d83226f53886
   - enabled: 1
     path: Assets/Scenes/VictoryConversation.unity
     guid: dd11dc3a12e7c164f9e94daa0c6e750b

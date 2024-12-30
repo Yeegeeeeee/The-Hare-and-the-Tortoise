@@ -447,6 +447,10 @@ PrefabInstance:
       value: -163.83
       objectReference: {fileID: 0}
     - target: {fileID: 4209764534254335469, guid: a5a37899475431448836350a9664f349, type: 3}
+      propertyPath: isDead
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4209764534254335469, guid: a5a37899475431448836350a9664f349, type: 3}
       propertyPath: leftMan
       value: 
       objectReference: {fileID: 1899483367}

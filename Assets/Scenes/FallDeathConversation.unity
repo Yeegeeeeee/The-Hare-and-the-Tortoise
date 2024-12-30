@@ -134,6 +134,10 @@ PrefabInstance:
       propertyPath: m_text
       value: Police
       objectReference: {fileID: 0}
+    - target: {fileID: 435774447836666327, guid: a5a37899475431448836350a9664f349, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -65.000015
+      objectReference: {fileID: 0}
     - target: {fileID: 870088943672651443, guid: a5a37899475431448836350a9664f349, type: 3}
       propertyPath: m_SizeDelta.y
       value: -385.25003
@@ -141,6 +145,14 @@ PrefabInstance:
     - target: {fileID: 870088943672651443, guid: a5a37899475431448836350a9664f349, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -63.500015
+      objectReference: {fileID: 0}
+    - target: {fileID: 3018923608430399971, guid: a5a37899475431448836350a9664f349, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -163.83003
+      objectReference: {fileID: 0}
+    - target: {fileID: 4209764534254335469, guid: a5a37899475431448836350a9664f349, type: 3}
+      propertyPath: isDead
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4209764534254335469, guid: a5a37899475431448836350a9664f349, type: 3}
       propertyPath: leftMan
@@ -161,6 +173,10 @@ PrefabInstance:
     - target: {fileID: 5806616085045389500, guid: a5a37899475431448836350a9664f349, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 110
+      objectReference: {fileID: 0}
+    - target: {fileID: 6924728361157195106, guid: a5a37899475431448836350a9664f349, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7821187611439149994, guid: a5a37899475431448836350a9664f349, type: 3}
       propertyPath: m_Name

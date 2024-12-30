@@ -2,8 +2,8 @@ Sign;ID;Character;Pos;Content;JumpTo;Effect;Target
 #;0;Eagle;right;Officer, it’s terrible! This human fell off the cliff during our race!;1;;
 #;1;Police;left;Fell off a cliff? What kind of race are you running here?;2;;
 #;2;Eagle;right;It was just an unfortunate accident. I swear! I had nothing to do with it.;3;;
-#;3;Police;left;Accident or not, it’s strange that so many people have been disappearing around here.;4;;
-#;4;Eagle;right;Disappearing? Surely you’re not suggesting I had anything to do with that!;5;;
+#;3;Police;left;This is the fourth person who has vanished after racing against you.;4;;
+#;4;Eagle;right;Surely you’re not suggesting I had anything to do with that!;5;;
 #;5;Police;left;I’m not suggesting… yet. But don’t leave town. I’ll need a statement from you later.;6;;
 #;6;Eagle;right;Of course, Officer. I’m always ready to cooperate. Just let me know when.;7;;
 #;7;Police;left;Let’s hope you’re telling the truth. I’ll contact you soon.;8;;
