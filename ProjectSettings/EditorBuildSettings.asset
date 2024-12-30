@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LoseConversation.unity
     guid: 01b89c17813ca0848aea34c3540ffb84
+  - enabled: 1
+    path: Assets/Scenes/RetryConversation.unity
+    guid: d1d4de5b018c9f446b5d74cde6ed93b2
   m_configObjects: {}

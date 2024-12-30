@@ -42,7 +42,8 @@ public class DialogManager : MonoBehaviour
     private bool isMouseClicked;
     private Coroutine currentCoroutine;
     private bool retry;
-    private bool rest;
+    private bool redo;
+    private bool quit;
 
     // Start is called before the first frame update
     void Start()
@@ -266,6 +267,7 @@ public class DialogManager : MonoBehaviour
         float _coward = PlayerPrefs.GetFloat("coward", 0);
         if (_coward > 0)
         {
+            ClearCoward();
             SceneManager.LoadScene("Giveup");
             return;
         }
@@ -281,10 +283,10 @@ public class DialogManager : MonoBehaviour
         }
         if (retry)
         {
-            SceneManager.LoadScene("Race");
+            SceneManager.LoadScene("RetryConversation");
             return;
         }
-        if (rest)
+        if (quit)
         {
             SceneManager.LoadScene("MainMenu");
             return;
@@ -367,16 +369,22 @@ public class DialogManager : MonoBehaviour
     {
         float _retry = PlayerPrefs.GetFloat("retry", 0);
         float _rest = PlayerPrefs.GetFloat("rest", 0);
+        float _redo = PlayerPrefs.GetFloat("redo", 0);
         if (_retry != 0)
         {
             retry = true;
         }
         if (_rest != 0)
         {
-            rest = true;
+            quit = true;
+        }
+        if (_redo != 0)
+        {
+            redo = true;
         }
         PlayerPrefs.SetFloat("retry", 0);
         PlayerPrefs.SetFloat("rest", 0);
+        PlayerPrefs.SetFloat("redo", 0);
         PlayerPrefs.Save();
     }
 
@@ -393,5 +401,11 @@ public class DialogManager : MonoBehaviour
         {
             Debug.LogWarning("No effect to clear. The effectHistory stack is empty.");
         }
+    }
+
+    private void ClearCoward()
+    {
+        PlayerPrefs.SetFloat("coward", 0);
+        PlayerPrefs.Save();
     }
 }

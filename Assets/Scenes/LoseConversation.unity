@@ -380,6 +380,10 @@ PrefabInstance:
       propertyPath: rightBird
       value: 
       objectReference: {fileID: 7947599635030427205}
+    - target: {fileID: 4209764534254335469, guid: a5a37899475431448836350a9664f349, type: 3}
+      propertyPath: dialogDataFile
+      value: 
+      objectReference: {fileID: 4900000, guid: e3637744205afab46a8835ef30c48100, type: 3}
     - target: {fileID: 4683756483770153309, guid: a5a37899475431448836350a9664f349, type: 3}
       propertyPath: m_Camera
       value: 

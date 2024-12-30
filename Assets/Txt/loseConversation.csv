@@ -1,0 +1,8 @@
+Sign; ID; Character; Pos; Content; JumpTo; Effect; Target
+#;0;Bird;right;Hah! Did you really think you could beat me? That was pathetic!;1;;
+#;1;Man;left;I... I can’t believe I lost.;2;;
+#;2;Bird;right;Face it, you’re just not good enough to beat a champion like me!;3;;
+#;3;Bird;right;So, what’s it going to be? Are you brave enough for another round, or are you done embarrassing yourself?;4;;
+&;4;;;I’ll race again! I won’t back down!;6;retry@1;Man
+&;5;;;You win this time. I’ll be back next year.;7;quit@1;Man
+END;6;;;;;

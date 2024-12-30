@@ -27,15 +27,15 @@ RectTransform:
   m_GameObject: {fileID: 660846514724721750}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.4992502, y: 1, z: 1}
+  m_LocalScale: {x: 3.1091907, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 435774447836666327}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 7.49765, y: -1.999939}
-  m_SizeDelta: {x: 86.03, y: 50}
+  m_AnchoredPosition: {x: 8.215515, y: -1.999939}
+  m_SizeDelta: {x: 95.7256, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4853815546600341980
 CanvasRenderer:
@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Hare
+  m_text: Eagle
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -343,6 +343,9 @@ MonoBehaviour:
   optionButton: {fileID: 7490754445586375439, guid: f8a6b2c1e707e8c4ca8323c537ba81ee, type: 3}
   buttonGroup: {fileID: 6924728361157195106}
   isStart: 0
+  isDead: 0
+  isWin: 0
+  isLost: 0
   textSpeed: 0.05
 --- !u!1 &2521998973686431242
 GameObject:
@@ -908,7 +911,7 @@ RectTransform:
   m_GameObject: {fileID: 6350737100845253433}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.40012, y: 1, z: 1}
+  m_LocalScale: {x: 0.32153055, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1716480504066447758}
@@ -916,7 +919,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 442, y: -65}
+  m_AnchoredPosition: {x: 438, y: -65}
   m_SizeDelta: {x: -683.22, y: -382.25}
   m_Pivot: {x: 0.5, y: 0.49999982}
 --- !u!222 &7483393166015251174

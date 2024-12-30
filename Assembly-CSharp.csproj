@@ -72,6 +72,7 @@
     <Compile Include="Assets\Scripts\DashBar.cs" />
     <Compile Include="Assets\Ethan the Hero\Script\PlayerAttackMethod.cs" />
     <Compile Include="Assets\Scripts\Potions.cs" />
+    <Compile Include="Assets\Txt\loseConversation.cs" />
     <Compile Include="Assets\GameUI\Demigiant\DOTween\Modules\DOTweenModuleUtils.cs" />
     <Compile Include="Assets\Scripts\HurtAnimation.cs" />
     <Compile Include="Assets\Scripts\BasicScripts\Train_HealthBar_UI.cs" />
@@ -517,20 +518,20 @@
       <HintPath>Library\PackageCache\com.unity.collections@1.2.4\Unity.Collections.LowLevel.ILSupport\Unity.Collections.LowLevel.ILSupport.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
-      <HintPath>Library\PackageCache\com.unity.visualscripting@1.9.4\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
+    <Reference Include="DemiLib">
+      <HintPath>Assets\GameUI\Demigiant\DemiLib\Core\DemiLib.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="DOTween">
       <HintPath>Assets\GameUI\Demigiant\DOTween\DOTween.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="DOTweenPro">
-      <HintPath>Assets\GameUI\Demigiant\DOTweenPro\DOTweenPro.dll</HintPath>
+    <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
+      <HintPath>Library\PackageCache\com.unity.visualscripting@1.9.4\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="DemiLib">
-      <HintPath>Assets\GameUI\Demigiant\DemiLib\Core\DemiLib.dll</HintPath>
+    <Reference Include="DOTweenPro">
+      <HintPath>Assets\GameUI\Demigiant\DOTweenPro\DOTweenPro.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="netstandard">

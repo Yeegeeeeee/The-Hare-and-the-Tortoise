@@ -3,8 +3,8 @@ Sign;ID;Character;Pos;Content;JumpTo;Effect;Target
 #;1;God;right;You have reached the end of your journey, my child. This is heaven.;2;;
 #;2;Man;left;Heaven? Then, you must be... God?;3;;
 #;3;God;right;Indeed, I am. And I am here to grant you a choice. Will you live this day once more, or are you ready to rest for eternity?;4;;
-&;4;;;I want to live this day again. I still have unfinished business.;6;retry@1;Man
-&;5;;;I am tired. I wish to rest in peace now.;7;rest@1;Man
+&;4;;;I want to live this day again. I still have unfinished business.;6;redo@1;Man
+&;5;;;I am tired. I wish to rest in peace now.;7;quit@1;Man
 #;6;God;right;Very well. Return to the mortal realm and make the most of this second chance.;8;;;
 #;7;God;right;As you wish. Rest peacefully, for your struggles have ended.;8;;;
 END;8;;;;;
